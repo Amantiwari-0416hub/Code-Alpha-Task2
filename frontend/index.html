@@ -1,0 +1,320 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        EcommercePro
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'style.css' %}"
+    >
+
+</head>
+
+<body>
+
+<header>
+
+    <div
+        class="logo"
+        onclick="showPage('home')"
+    >
+        EcommercePro
+    </div>
+
+    <nav>
+
+        <button onclick="showPage('home')">
+            Home
+        </button>
+
+        <button onclick="showPage('products')">
+            Products
+        </button>
+
+        <button onclick="showPage('cart')">
+
+            Cart
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </button>
+
+        <button onclick="showPage('orders')">
+            Orders
+        </button>
+
+        <button
+            id="loginButton"
+            onclick="showPage('account')"
+        >
+            Login
+        </button>
+
+        <button
+            id="logoutButton"
+            onclick="logoutUser()"
+            class="hidden"
+        >
+            Logout
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+
+<section
+    id="home"
+    class="page active"
+>
+
+    <div class="hero">
+
+        <p class="small-title">
+            WELCOME TO ECOMMERCEPRO
+        </p>
+
+        <h1>
+            Shopping made simple.
+        </h1>
+
+        <p>
+            Discover products, add them to your cart
+            and order them online.
+        </p>
+
+        <button
+            class="main-button"
+            onclick="showPage('products')"
+        >
+            Shop Now
+        </button>
+
+    </div>
+
+</section>
+
+
+<section
+    id="products"
+    class="page"
+>
+
+    <h2>
+        Products
+    </h2>
+
+    <input
+        id="searchInput"
+        type="text"
+        placeholder="Search products..."
+        oninput="displayProducts()"
+    >
+
+    <div
+        id="productContainer"
+        class="product-grid"
+    >
+    </div>
+
+</section>
+
+
+<section
+    id="details"
+    class="page"
+>
+
+    <button
+        class="back-button"
+        onclick="showPage('products')"
+    >
+        ← Back
+    </button>
+
+    <div id="productDetails">
+    </div>
+
+</section>
+
+
+<section
+    id="cart"
+    class="page"
+>
+
+    <h2>
+        Shopping Cart
+    </h2>
+
+    <div id="cartItems">
+    </div>
+
+    <div class="cart-total">
+
+        Total:
+        ₹<span id="cartTotal">0</span>
+
+    </div>
+
+    <button
+        class="main-button"
+        onclick="placeOrder()"
+    >
+        Place Order
+    </button>
+
+    <p id="orderMessage">
+    </p>
+
+</section>
+
+
+<section
+    id="account"
+    class="page"
+>
+
+    <div class="form-container">
+
+        <div class="form-box">
+
+            <h2>
+                Login
+            </h2>
+
+            <form id="loginForm">
+
+                <input
+                    id="loginIdentifier"
+                    type="text"
+                    placeholder="Username or Email"
+                    required
+                >
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button
+                    class="main-button"
+                    type="submit"
+                >
+                    Login
+                </button>
+
+            </form>
+
+            <p id="loginMessage">
+            </p>
+
+        </div>
+
+
+        <div class="form-box">
+
+            <h2>
+                Register
+            </h2>
+
+            <form id="registerForm">
+
+                <input
+                    id="registerUsername"
+                    type="text"
+                    placeholder="Username"
+                    required
+                >
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button
+                    class="main-button"
+                    type="submit"
+                >
+                    Register
+                </button>
+
+            </form>
+
+            <p id="registerMessage">
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section
+    id="orders"
+    class="page"
+>
+
+    <h2>
+        My Orders
+    </h2>
+
+    <div id="ordersContainer">
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    EcommercePro
+
+    <br>
+
+    CodeAlpha Full Stack Development Project 
+
+</footer>
+
+
+<script
+    src="{% static 'script.js' %}"
+>
+</script>
+
+</body>
+
+</html>
